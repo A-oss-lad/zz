@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)https://render.lingguangcontent.com/p/lingguang/21bb3c9e17679341808168969e177c/index.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script>window.injectInfo = { env: "PROD" };</script><script>window.publicPath = "https://gw.alipayobjects.com/render/p/yuyan/180023180074008304/";</script><script defer="" src="./🎮 切块大师 - 益智游戏_files/mini_app_base_game.js.下载"></script>
+    <!--<base href="https://gw.alipayobjects.com/render/p/yuyan/180023180074008304/">--><base href=".">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>🎮 切块大师 - 益智游戏</title>
+    
+    <link rel="stylesheet" href="./🎮 切块大师 - 益智游戏_files/style.css">
+<script>
+    window.artifactId = "flashapp-6f2ec77488424d00";
+    window.artifactVersion = "16";
+    window.trace_id = "21bb3c9e17679341808168969e177c";
+</script>
+<meta http-equiv="Content-Security-Policy" content="
+  script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39; data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com;
+  frame-src &#39;self&#39; data: blob: *.alipay.com *.alipayobjects.com *.amap.com *.lingguang.com *.lingguangcontent.com;
+  connect-src &#39;self&#39; data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com;
+  child-src &#39;self&#39; data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com;
+  object-src &#39;self&#39; data: blob: *.alipay.com *.alipayobjects.com  *.amap.com *.lingguang.com *.lingguangcontent.com;
+  base-uri &#39;self&#39; *.alipay.com *.alipayobjects.com *.amap.com *.lingguang.com *.lingguangcontent.com;
+  form-action &#39;none&#39;;
+  upgrade-insecure-requests;
+">
+
+</head>
+<body>
+
+<!-- Game canvas -->
+<canvas id="c" width="1912" height="876" style="width: 1912px; height: 876px;"></canvas>
+
+<!-- Gameplay HUD -->
+<div class="hud" style="display: none;">
+	<div class="hud__score">
+		<div class="score-lbl"></div>
+		<div class="cube-count-lbl"></div>
+		<div class="difficulty-indicator">
+			<div class="difficulty-lbl"></div>
+		</div>
+		<div class="coin-info">
+			<div class="coin-count-lbl"></div>
+			<div class="perfect-combo-lbl"></div>
+		</div>
+	</div>
+	<div class="pause-btn"><div></div></div>
+	<div class="slowmo" style="opacity: 0;">
+		<div class="slowmo__bar" style="transform: scaleX(0);"></div>
+	</div>
+</div>
+
+<!-- Menu System -->
+<div class="menus has-active">
+	<div class="menu menu--main active">
+		<h1>🎮 切块大师</h1>
+		<div class="game-rules">
+			<h3>🎯 游戏说明</h3>
+			<p>📱 滑动屏幕切割飞来的3D方块</p>
+			<p>⚡ 快速滑动击碎方块得10分</p>
+			<p>👆 慢速滑动触碰方块得5分</p>
+			<p>💎 连续完美击中获得金币奖励</p>
+			<p>💣 红色炸弹被切到会结束游戏</p>
+			<p>🔄 难度自动切换：简单30秒→困难10秒循环</p>
+			<p>🏆 挑战自己，创造最高分记录！</p>
+		</div>
+		<div class="button-container">
+			<div class="button-row">
+				<button type="button" class="play-normal-btn">🎯 普通模式</button>
+				<button type="button" class="play-casual-btn">🌴 休闲模式</button>
+			</div>
+			<div class="button-row">
+				<button type="button" class="play-dynamic-btn">🔄 难度切换</button>
+				<button type="button" class="leaderboard-btn">🏆 排行榜</button>
+			</div>
+		</div>
+	</div>
+	<div class="menu menu--pause">
+		<h1>暂停</h1>
+		<button type="button" class="resume-btn">继续游戏</button>
+		<button type="button" class="menu-btn--pause">主菜单</button>
+	</div>
+	<div class="menu menu--score">
+		<h1>游戏结束</h1>
+		<h2>分数:</h2>
+		<div class="final-score-lbl"></div>
+		<div class="high-score-lbl"></div>
+		<button type="button" class="play-again-btn">再玩一次</button>
+		<button type="button" class="menu-btn--score">主菜单</button>
+	</div>
+	<div class="menu menu--leaderboard">
+		<h1>🏆 排行榜</h1>
+		<div class="leaderboard-container">
+			<div class="leaderboard-title">最高分记录</div>
+			<ul class="leaderboard-list" id="leaderboard-list">
+				<!-- 排行榜内容将通过JS动态生成 -->
+			</ul>
+		</div>
+		<button type="button" class="menu-btn--leaderboard">返回主菜单</button>
+	</div>
+</div>
+
+<!-- Load game modules in order -->
+<script src="./🎮 切块大师 - 益智游戏_files/game_assets.js.下载"></script>
+<script src="./🎮 切块大师 - 益智游戏_files/game_core.js.下载"></script>
+<script src="./🎮 切块大师 - 益智游戏_files/game_ui.js.下载"></script>
+
+
+
+
+</body></html>
